@@ -73,7 +73,7 @@
     </div>
     <div class="mb-3">
       <label>Opsi Bayar:</label>
-      <select name="opsiBayar" class="form-control">
+      <select name="opsiBayar" id="opsiBayar" class="form-control">
         <option value="COD">COD</option>
         <option value="DP">DP</option>
         <option value="LUNAS">LUNAS</option>
@@ -380,15 +380,20 @@ document.getElementById("jenisPelanggan").addEventListener("change", function ()
   });
 
 // 🔁 Auto-disable DP jika COD
+const dpInput = document.getElementById("dpAwal");
+const dpGroup = dpInput.closest(".mb-3"); // Ambil container luar DP
+
 document.getElementById("opsiBayar").addEventListener("change", function () {
-  const dpInput = document.getElementById("dpAwal");
   if (this.value === "COD") {
     dpInput.disabled = true;
-    dpInput.value = ""; // Kosongkan isi DP
+    dpInput.value = "";
+    dpGroup.style.display = "none"; // Sembunyikan seluruh elemen DP
   } else {
     dpInput.disabled = false;
+    dpGroup.style.display = "block"; // Tampilkan kembali
   }
 });
+
 
 // 🟢 Jalankan sekali saat halaman dimuat juga
 document.addEventListener("DOMContentLoaded", () => {
