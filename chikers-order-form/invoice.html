@@ -97,7 +97,7 @@
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("invoice_id");
 
-  const endpoint = "https://script.google.com/macros/s/AKfycbxDyzoSndoRpDkenHdipaIPpuV6dqRRD2ls6QJOPKJVFjrf6Jvf8BL4SXLL7QFUbr_vCg/exec?invoice_id=" + id;
+  const endpoint = "https://script.google.com/macros/s/AKfycbyy3h9l-MKrCUbH5nIyypjM6ehzbv8SiB2aVKske_g0LddTWgqAiOWybZUUuCmHjTyPuQ/exec?invoice_id=" + id;
 
   fetch(endpoint)
     .then(res => res.json())
